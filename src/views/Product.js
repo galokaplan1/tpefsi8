@@ -1,13 +1,9 @@
 import { useParams } from "react-router-dom"
 import SpecificProduct from "../components/Services/SpecificProduct"
-import delta from '../images/delta.png';
-import ferrum from '../images/ferrum.png';
-import logoips from '../images/logo_ips.png';
-import tigre from '../images/tigre.png';
-import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import '../index.css';
 import { ActionTypes, useContextState } from "../Context";
+import Marcas from "../components/Marcas";
 
 const SingleProduct = () => {
     const {contextState, setContextState} = useContextState() 
@@ -30,15 +26,7 @@ const SingleProduct = () => {
             }
             
             <hr className="espacio" />
-            <Container>
-                <h4 className="texto"><b>Marcas con las que trabajamos</b></h4>
-                <Row>
-                    <Col md={4}> <img src={ferrum} alt="Ikea" className="ads" /> </Col>
-                    <Col md={4}> <img src={delta} alt="Ikea" className="ads" /> </Col>
-                    <Col md={3}> <img src={tigre} alt="Ikea" className="ads" /> </Col>
-                    <Col md={1}> <img src={logoips} alt="Ikea" className="ads" /> </Col>
-                </Row>
-            </Container>
+            <Marcas></Marcas>
         </div>
     )   
 }
