@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import '../index.css';
 import { ActionTypes, useContextState } from "../Context";
 import Marcas from "../components/Marcas";
+import Cards from "../components/Card";
 
 const SingleProduct = () => {
     const {contextState, setContextState} = useContextState() 
@@ -12,16 +13,12 @@ const SingleProduct = () => {
     const existe = contextState.product.find(item => item.id === Product.id)
     return(
         <div>
-            <h1>{Product.title}</h1>
-            <img src={Product.thumbnail}></img>
-            <h1>{Product.brand}</h1>
-            <h1>{Product.description}</h1>
-            <h1>Precio: ${Product.price}</h1>
+            <Cards props={Product}></Cards>
             {
                 existe ? (
-                    <Button variant="danger" onClick={() => setContextState({type: ActionTypes.SetEliminarId, value: Product.id})}>Eliminar del carrito</Button>
+                    <Button variant="danger" onClick={() => setContextState({type: ActionTypes.SetEliminarId, value: Product.id})}> Eliminar del carrito</Button>
                 ) : (
-                    <Button variant="success" onClick={() => setContextState({type: ActionTypes.SetProduct, value: Product})}>Agregar al carrito</Button>
+                    <Button variant="success" onClick={() => setContextState({type: ActionTypes.SetProduct, value: Product})}> Agregar al carrito</Button>
                 )
             }
             

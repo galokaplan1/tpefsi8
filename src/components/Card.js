@@ -17,6 +17,7 @@ const Cards = ({props}) => {
               <Card.Text>
               {props.description}
               </Card.Text>
+              <Card.Text>Precio:  ${props.price}</Card.Text>
             </Card.Body>
           </Card>
           </div>
